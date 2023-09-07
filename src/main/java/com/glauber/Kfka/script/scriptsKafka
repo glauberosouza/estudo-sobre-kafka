@@ -1,0 +1,40 @@
+Para visualizar informações sobre tópicos, brokers e outros dados, acesse o seguinte link: http://localhost:3030/.
+
+Para se conectar ao container Docker que está executando o Kafka, utilize o seguinte comando no terminal:
+
+~~~shell
+$ docker exec -it o8k_academy_kafka /bin/bash
+~~~
+
+Para criar um novo tópico, use o seguinte comando:
+
+~~~shell
+$ kafka-topics --bootstrap-server=127.0.0.1:9092 --create --topic=STORE_NEW_ORDER --partitions=1 --replication-factor=1
+~~~
+
+Para listar todos os tópicos, execute o comando:
+
+~~~shell
+$ kafka-topics --bootstrap-server=127.0.0.1:9092 --list
+~~~
+
+Para ver os detalhes de um tópico específico, utilize o comando a seguir:
+
+~~~shell
+kafka-topics --bootstrap-server=127.0.0.1:9092 --describe --topic=STORE_NEW_ORDER
+~~~
+
+Para enviar mensagens para um tópico, use o seguinte comando:
+
+~~~shell
+$ kafka-console-producer --broker-list=127.0.0.1:9092 --topic=STORE_NEW_ORDER
+~~~
+
+Após executar o comando acima, você verá o símbolo > e, a partir desse ponto
+cada linha que você digitar será considerada uma mensagem. Por exemplo:
+
+~~~
+> order1,100 <- mensagem nova
+> order2,200 <- mensagem nova
+> order3,1000 <- mensagem nova
+~~~
