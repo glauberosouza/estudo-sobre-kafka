@@ -38,3 +38,11 @@ cada linha que você digitar será considerada uma mensagem. Por exemplo:
 > order2,200 <- mensagem nova
 > order3,1000 <- mensagem nova
 ~~~
+
+- PARA CONSUMIR UMA MENSAGEM DE UM TÓPICO
+
+~~~shell
+$ kafka-console-consumer --bootstrap-server=127.0.0.1:9092 --topic=STORE_NEW_ORDER --from-beginning
+
+Comando para criar uma nova partição
+kafka-topics --alter --bootstrap-server=127.0.0.1:9092 --topic=STORE_NEW_ORDER --partitions=3
